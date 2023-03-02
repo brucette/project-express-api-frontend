@@ -1,31 +1,31 @@
 import { Header } from 'components/Header';
-import { Devices } from 'styles/globalStyles';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import { Start } from 'Start';
+// import { Start } from 'components/Start';
+import { AllBooks } from 'components/AllBooks';
+import { Search } from 'components/Search';
+import { TopRated } from 'components/TopRated';
 import styled from 'styled-components';
 
 export const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <Wrapper>
-        <Start />
+        <Routes>
+          {/* <Route path="/" element={<Start />} /> */}
+          <Route path="/all-books" element={<AllBooks />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/top" element={<TopRated />} />
+        </Routes>
       </Wrapper>
-    </>
+    </BrowserRouter>
   )
 }
 
 const Wrapper = styled.section`
-  margin: 0 auto;
-  width: 90%;
-  border: 2px blue solid;
-
-  @media ${Devices.tablet} {
-    width: 70%;
-  }
-
-  @media ${Devices.laptop} {
-    width: 50%;
-  }
-
+  width: 100%;
+  background-color: #9EB6AA;
+  display: flex;
+  min-height: 60vh;
 `
