@@ -60,6 +60,10 @@ const Form = styled.form`
     border: none;
   }
 
+  input:focus {
+    outline: 2px solid #C1A6A3;
+  }
+
   button {
     width: 15%;
     margin-right: 1rem;
