@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import { InnerWrapper } from 'styles/globalStyles';
 import styled from 'styled-components/macro';
 import { DisplayResults } from './DisplayResults';
 
 export const AllBooks = () => {
   const [theData, setTheData] = useState({});
-  console.log(theData)
   const numberOfPages = theData.num_of_pages;
   const [currentPage, setCurrentPage] = useState(1);
-  // const navigate = useNavigate();
 
   const nextPage = () => {
     if (currentPage < numberOfPages) {
+      fetch(`http://localhost:8080/books?page=${currentPage + 1}`)
+        .then((response) => response.json())
+        .then((json) => setTheData(json.booksData))
+        .catch((error) => console.error(error))
+
       setCurrentPage(currentPage + 1)
     }
-    fetch(`http://localhost:8080/books?page=${currentPage}`)
-      .then((response) => response.json())
-      .then((json) => setTheData(json.booksData))
-      .catch((error) => console.error(error))
   }
 
   const prevPage = () => {
-    if (currentPage !== 1) {
+    if (currentPage > 1) {
+      fetch(`http://localhost:8080/books?page=${currentPage - 1}`)
+        .then((response) => response.json())
+        .then((json) => setTheData(json.booksData))
+        .catch((error) => console.error(error))
       setCurrentPage(currentPage - 1)
     }
-    fetch(`http://localhost:8080/books?page=${currentPage}`)
-      .then((response) => response.json())
-      .then((json) => setTheData(json.booksData))
-      .catch((error) => console.error(error))
   }
 
   useEffect(() => {
