@@ -26,20 +26,17 @@ const NavDiv = styled.section`
 `
 
 const HeaderWrapper = styled.section`
-  height: 40vh;
+  //height: 40vh;
   width: 100vw;
-  margin-bottom: 2rem;
+  //margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  border: 2px solid blue;
 `
 
 const Video = styled.video`
   width: 100%;
   height: 40vh;
   object-fit: cover;
-  margin-bottom: 1rem;
-  border: 2px solid blue;
 `
 
 const Selection = styled.button`

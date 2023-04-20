@@ -4,7 +4,7 @@ import { DisplayResults } from './DisplayResults';
 
 export const TopRated = () => {
   const [topBooks, setTopBooks] = useState([]);
-
+  console.log('topBooks', topBooks)
   fetch('http://localhost:8080/books?top=true')
     .then((response) => response.json())
     .then((json) => setTopBooks(json.booksData))
@@ -17,6 +17,8 @@ export const TopRated = () => {
 
       <DisplayResults
         multipleResults={topBooks} />
+
     </InnerWrapper>
   )
 }
+

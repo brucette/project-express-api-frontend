@@ -19,6 +19,7 @@ export const InnerWrapper = styled.section`
   color: #444;
   display: flex;
   flex-direction: column;
+  border: 2px red solid;
 
   @media ${Devices.tablet} {
     width: 70%;

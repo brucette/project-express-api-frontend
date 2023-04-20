@@ -7,6 +7,7 @@ export const Search = () => {
   const [typed, setTyped] = useState('');
   const [authorBooks, setAuthorBooks] = useState([]);
   const [singleBook, setSingleBook] = useState({});
+  console.log(singleBook)
   const [submitted, setSumbitted] = useState(false);
 
   const handleInput = (event) => {
@@ -56,6 +57,7 @@ const Form = styled.form`
 
   input {
     width: 80%;
+    font-size: 1rem;
     margin-bottom: 1rem;
     padding: 0.8rem;
     background-color: whitesmoke;

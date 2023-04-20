@@ -1,28 +1,22 @@
-import React from 'react'; // , { useState, useEffect }
-// import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 
 export const Start = () => {
-  // const navigate = useNavigate();
-
   return (
     <ChoiceDiv>
-      <h2>Select one option in the navigation menu to view available books</h2>
+      <Direction>Select one option in the navigation menu to view available books.</Direction>
     </ChoiceDiv>
   )
 }
 
 const ChoiceDiv = styled.section`
-  /* display: flex;
-  flex-direction: column; */
-  border: 2px red solid;
-  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  color: #555;
+  text-align: center;
 `
 
-// const Selection = styled.button`
-//   background-color: #C1A6A3; //#8B475F;
-//   color: #8B475F;
-//   margin: 2.5rem;
-//   padding: 1rem;
-//   border: none;
-// `
+const Direction = styled.h2`
+  margin: 3rem;
+`
