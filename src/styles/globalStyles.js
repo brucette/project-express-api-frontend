@@ -28,3 +28,15 @@ export const InnerWrapper = styled.section`
     width: 50%;
   }
 `
+
+export const Button = styled.button`
+  width: 45%;
+  font-size: 1rem;
+  margin-right: 1rem;
+  padding: 0.8rem;
+  background-color: #C1A6A3;
+  border: 1px solid #555;
+  border-radius: 3px;
+  color: whitesmoke;
+  cursor: pointer;
+`

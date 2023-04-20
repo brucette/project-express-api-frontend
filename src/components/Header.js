@@ -31,12 +31,15 @@ const HeaderWrapper = styled.section`
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
+  border: 2px solid blue;
 `
 
 const Video = styled.video`
   width: 100%;
-  height: 100%;
+  height: 40vh;
   object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid blue;
 `
 
 const Selection = styled.button`

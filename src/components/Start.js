@@ -7,9 +7,7 @@ export const Start = () => {
 
   return (
     <ChoiceDiv>
-      {/* <Selection type="button" onClick={() =>navigate('all-books')}>Browse all books</Selection>
-      <Selection type="button">See top rated books</Selection>
-      <Selection type="button">Seearch by id or author</Selection> */}
+      <h2>Select one option in the navigation menu to view available books</h2>
     </ChoiceDiv>
   )
 }
@@ -17,6 +15,8 @@ export const Start = () => {
 const ChoiceDiv = styled.section`
   /* display: flex;
   flex-direction: column; */
+  border: 2px red solid;
+  height: 50vh;
 `
 
 // const Selection = styled.button`

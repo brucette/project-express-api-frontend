@@ -15,16 +15,16 @@ export const DisplayResults = ({ multipleResults, singleResult }) => {
         multipleResults.map((item) => (
           <tbody key={item.bookID}>
             <tr>
-              <Cell>{item.bookID}</Cell>
+              <IdCell>{item.bookID}</IdCell>
               <Cell>{item.title}</Cell>
               <Cell>{item.authors}</Cell>
             </tr>
           </tbody>
         )))}
-      {singleResult && (
+      {singleResult?.length > 0 && (
         <tbody key={singleResult.bookID}>
           <tr>
-            <Cell>{singleResult.bookID}</Cell>
+            <IdCell>{singleResult.bookID}</IdCell>
             <Cell>{singleResult.title}</Cell>
             <Cell>{singleResult.authors}</Cell>
           </tr>
@@ -40,5 +40,10 @@ const Table = styled.table`
 
 const Cell = styled.td`
   padding: 1rem 0.5rem;
-  border: 1px solid darkgreen;
+  background-color: #b1c4bb;
+  border-radius: 3px;
+`
+
+const IdCell = styled(Cell)`
+  text-align: center;
 `

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { InnerWrapper } from 'styles/globalStyles';
+import { InnerWrapper, Button, Devices } from 'styles/globalStyles';
 import styled from 'styled-components/macro';
 import { DisplayResults } from './DisplayResults';
 
@@ -43,22 +43,20 @@ export const AllBooks = () => {
       <DisplayResults
         multipleResults={theData.results} />
       <BtnDiv>
-        <NavBtn type="button" onClick={prevPage}>Previous</NavBtn>
-        <NavBtn type="button" onClick={nextPage}>Next</NavBtn>
+        <Button type="button" onClick={prevPage}>Previous</Button>
+        <Button type="button" onClick={nextPage}>Next</Button>
       </BtnDiv>
     </InnerWrapper>
   )
 }
 
 const BtnDiv = styled.div`
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: space-around;
   margin: 2rem auto;
-  border: 2px red solid;
-`
 
-const NavBtn = styled.button`
-  width: 45%;
-  padding: 0.5rem;
+  @media ${Devices.laptop} {
+    width: 50%;
+  }
 `
