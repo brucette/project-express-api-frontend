@@ -5,15 +5,16 @@ import { DisplayResults } from './DisplayResults';
 
 export const AllBooks = () => {
   const [theData, setTheData] = useState({});
-  console.log('theData', theData)
+  //console.log('theData', theData.results)
   const numberOfPages = theData.num_of_pages;
   const [currentPage, setCurrentPage] = useState(1);
 
   const fetchData = (page) => {
-    // https://project-express-api-eyln4nn5aa-lz.a.run.app/
+    // import { API_URL } from 'utils/utils';
+    // fetch(API_URL(`books?page=${page}`))
     fetch(`http://localhost:8080/books?page=${page}`)
       .then((response) => response.json())
-      .then((json) => setTheData(json.booksData))
+      .then((json) => setTheData(json.body.booksData))
       .catch((error) => console.error(error))
   }
 

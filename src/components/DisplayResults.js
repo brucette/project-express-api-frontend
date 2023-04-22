@@ -21,7 +21,7 @@ export const DisplayResults = ({ multipleResults, singleResult }) => {
             </Row>
           </tbody>
         )))}
-      {singleResult !== undefined ? (Object.keys(singleResult).length > 0) ? (
+      {singleResult !== undefined && singleResult !== null ? (Object.keys(singleResult).length > 0) ? (
         <tbody key={singleResult.bookID}>
           <Row>
             <IdCell>{singleResult.bookID}</IdCell>
@@ -29,7 +29,7 @@ export const DisplayResults = ({ multipleResults, singleResult }) => {
             <Cell>{singleResult.authors}</Cell>
           </Row>
         </tbody>
-      ) : <div /> : <div />}
+      ) : <tbody /> : <tbody />}
     </Table>
   )
 }
@@ -46,7 +46,6 @@ const Cell = styled.td`
   padding: 1rem 0.5rem;
   background-color: #b1c4bb;
   border-radius: 3px;
-  border: 1px solid green;
 `
 
 const IdCell = styled(Cell)`

@@ -25,6 +25,8 @@ export const App = () => {
 
 const Wrapper = styled.section`
   width: 100%;
+  margin: 0;
+  padding: 0;
   background-color: #9EB6AA;
   display: flex;
   min-height: 60vh;

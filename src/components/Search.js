@@ -7,35 +7,35 @@ export const Search = () => {
   const [typed, setTyped] = useState('');
   const [authorBooks, setAuthorBooks] = useState([]);
   const [singleBook, setSingleBook] = useState({});
-  console.log(singleBook)
-  const [submitted, setSumbitted] = useState(false);
 
   const handleInput = (event) => {
-    setTyped(event.target.value)
+    setTyped(event.target.value);
   }
 
   const onSearchSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+    setSingleBook({});
+    setAuthorBooks([]);
+    // import { API_URL } from 'utils/utils';
+    // fetch(API_URL(`books?author=${typed}`))
     if (isNaN(Number(typed))) {
       fetch(`http://localhost:8080/books?author=${typed}`)
         .then((response) => response.json())
-        .then((json) => setAuthorBooks(json.booksData))
+        .then((json) => setAuthorBooks(json))
         .catch((error) => console.error(error))
-      setSingleBook({})
-      setSumbitted(true)
     } else {
+      // fetch(API_URL(`books/${typed}`))
       fetch(`http://localhost:8080/books/${typed}`)
         .then((response) => response.json())
-        .then((json) => setSingleBook(json.book))
+        .then((json) => setSingleBook(json))
         .catch((error) => console.error(error))
-      setAuthorBooks([])
-      setSumbitted(true)
     }
+    setTyped('')
   }
+
   return (
     <InnerWrapper>
       <h2>Search</h2>
-
       <Form onSubmit={onSearchSubmit}>
         <input
           value={typed}
@@ -43,10 +43,22 @@ export const Search = () => {
           placeholder="enter author name or book id" />
         <button type="submit">search</button>
       </Form>
-      {submitted && (
+
+      {authorBooks.success && (
+        <DisplayResults
+          multipleResults={authorBooks.body.booksData}
+          singleResult={singleBook} />
+      )}
+      {!authorBooks.success && (
+        <NoResults>{authorBooks.message}</NoResults>
+      )}
+      {singleBook.success && (
         <DisplayResults
           multipleResults={authorBooks}
-          singleResult={singleBook} />
+          singleResult={singleBook.body.book} />
+      )}
+      {!singleBook.success && (
+        <NoResults>{singleBook.message}</NoResults>
       )}
     </InnerWrapper>
   )
@@ -92,3 +104,7 @@ const Form = styled.form`
       cursor: pointer;
     }
   }`
+
+const NoResults = styled.div`
+  margin: 2rem 0;
+`
