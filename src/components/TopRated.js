@@ -5,6 +5,7 @@ import { DisplayResults } from './DisplayResults';
 
 export const TopRated = () => {
   const [topBooks, setTopBooks] = useState([]);
+
   fetch(API_URL('books?top=true'))
     .then((response) => response.json())
     .then((json) => setTopBooks(json.body.booksData))
