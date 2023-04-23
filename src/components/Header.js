@@ -26,9 +26,7 @@ const NavDiv = styled.section`
 `
 
 const HeaderWrapper = styled.section`
-  //height: 40vh;
   width: 100vw;
-  //margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
 `

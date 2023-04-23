@@ -1,4 +1,17 @@
 import styled from 'styled-components/macro';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+
+* {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+`;
+
+export default GlobalStyle;
 
 const sizes = {
   tablet: '668px',
@@ -19,7 +32,6 @@ export const InnerWrapper = styled.section`
   color: #444;
   display: flex;
   flex-direction: column;
-  //border: 2px red solid;
 
   @media ${Devices.tablet} {
     width: 70%;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { InnerWrapper, Devices } from 'styles/globalStyles';
+import { API_URL } from 'utils/utils';
 import { DisplayResults } from './DisplayResults';
 
 export const Search = () => {
@@ -16,16 +17,14 @@ export const Search = () => {
     event.preventDefault();
     setSingleBook({});
     setAuthorBooks([]);
-    // import { API_URL } from 'utils/utils';
-    // fetch(API_URL(`books?author=${typed}`))
+
     if (isNaN(Number(typed))) {
-      fetch(`http://localhost:8080/books?author=${typed}`)
+      fetch(API_URL(`books?author=${typed}`))
         .then((response) => response.json())
         .then((json) => setAuthorBooks(json))
         .catch((error) => console.error(error))
     } else {
-      // fetch(API_URL(`books/${typed}`))
-      fetch(`http://localhost:8080/books/${typed}`)
+      fetch(API_URL(`books/${typed}`))
         .then((response) => response.json())
         .then((json) => setSingleBook(json))
         .catch((error) => console.error(error))
@@ -44,22 +43,15 @@ export const Search = () => {
         <button type="submit">search</button>
       </Form>
 
-      {authorBooks.success && (
+      {authorBooks.success ? (
         <DisplayResults
-          multipleResults={authorBooks.body.booksData}
-          singleResult={singleBook} />
-      )}
-      {!authorBooks.success && (
-        <NoResults>{authorBooks.message}</NoResults>
-      )}
-      {singleBook.success && (
+          multipleResults={authorBooks.body.booksData} />
+      ) : <NoResults>{authorBooks.message}</NoResults>}
+
+      {singleBook.success ? (
         <DisplayResults
-          multipleResults={authorBooks}
           singleResult={singleBook.body.book} />
-      )}
-      {!singleBook.success && (
-        <NoResults>{singleBook.message}</NoResults>
-      )}
+      ) : <NoResults>{singleBook.message}</NoResults>}
     </InnerWrapper>
   )
 }

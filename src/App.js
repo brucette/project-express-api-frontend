@@ -6,20 +6,24 @@ import { AllBooks } from 'components/AllBooks';
 import { Search } from 'components/Search';
 import { TopRated } from 'components/TopRated';
 import styled from 'styled-components';
+import GlobalStyle from 'styles/globalStyles';
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <Header />
-      <Wrapper>
-        <Routes>
-          <Route path="/" element={<Start />} />
-          <Route path="/all-books" element={<AllBooks />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/top" element={<TopRated />} />
-        </Routes>
-      </Wrapper>
-    </BrowserRouter>
+    <>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Header />
+        <Wrapper>
+          <Routes>
+            <Route path="/" element={<Start />} />
+            <Route path="/all-books" element={<AllBooks />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/top" element={<TopRated />} />
+          </Routes>
+        </Wrapper>
+      </BrowserRouter>
+    </>
   )
 }
 

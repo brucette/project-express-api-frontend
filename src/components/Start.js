@@ -4,7 +4,9 @@ import styled from 'styled-components';
 export const Start = () => {
   return (
     <ChoiceDiv>
-      <Direction>Select one option in the navigation menu to view available books.</Direction>
+      <Direction>
+        Select one option in the navigation menu to view books in our collection.
+      </Direction>
     </ChoiceDiv>
   )
 }
