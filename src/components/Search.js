@@ -18,7 +18,7 @@ export const Search = () => {
     setSingleBook({});
     setAuthorBooks([]);
 
-    if (isNaN(Number(typed))) {
+    if (Number(typed).isNaN) {
       fetch(API_URL(`books?author=${typed}`))
         .then((response) => response.json())
         .then((json) => setAuthorBooks(json))
